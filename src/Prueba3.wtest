@@ -1,0 +1,70 @@
+import rolando.*
+import artefactos.*
+import refuerzos.*
+import hechizos.*
+import libroDeHechizos.*
+
+describe "Para los siguientes tests, Rolando debe tener como artefactos 
+	la espada del destino, el collar divino, la máscara oscura, una 
+	armadura sin refuerzo y el espejo." {
+	
+	fixture {
+		rolando.agregarArtefacto(espadaDelDestino)
+		rolando.agregarArtefacto(collarDivino)
+		rolando.agregarArtefacto(mascaraOscura)
+		rolando.agregarArtefacto(armadura)
+		rolando.agregarArtefacto(espejo)
+	}	
+	
+	test "Rolando esta cargado" {
+		assert.that(rolando.estaCargado())
+	}
+
+	test "Al sacarle la armadura a Rolando, NO esta cargado" {
+		rolando.removerArtefacto(armadura)
+		assert.that(!rolando.estaCargado())
+	}
+
+	test "La habilidad para la lucha de Rolando es 20" {
+		assert.equals(20, rolando.habilidadLucha())
+	}
+
+	test "Si la armadura tiene como refuerzo a la bendicion, su habilidad
+		para la lucha es 58" {
+		armadura.refuerzo(bendicion)	
+		assert.equals(58, armadura.unidadesDeLucha())
+	}
+
+	test "Si la armadura tiene como refuerzo a la cota de malla, su habilidad
+		para la lucha es 3" {
+		armadura.refuerzo(cotaDeMalla)
+		assert.equals(3, armadura.unidadesDeLucha())
+	}
+
+	test "Si la armadura tiene como refuerzo al hechizo basico, su habilidad
+		para la lucha es 12" {
+		armadura.refuerzo(hechizoBasico)
+		assert.equals(12, armadura.unidadesDeLucha())	
+	}
+
+	test "Si la armadura tiene como refuerzo al hechizo espectro malefico, su habilidad
+		para la lucha es 19" {
+		armadura.refuerzo(espectroMalefico)
+		assert.equals(19, armadura.unidadesDeLucha())	
+	}	
+
+	test "Al eliminar todos los artefactos de Rolando e incorporar el espejo,
+		la habilidad para la lucha de Rolando es 1" {
+		rolando.artefactos().clear()
+		rolando.agregarArtefacto(espejo)
+		assert.equals(1, rolando.habilidadLucha())
+	}	
+
+	test "Al remplazar al hechizo preferido de Rolando por un libro de hechizos que
+		contiene al espectro malefico y al hechizo basico, el nivel de hechiceria
+		de Rolando es 56" {
+		libroDeHechizos.hechizos([espectroMalefico, hechizoBasico])
+		rolando.hechizoPreferido(libroDeHechizos)
+		assert.equals(56, rolando.nivelHechiceria())
+	}
+}

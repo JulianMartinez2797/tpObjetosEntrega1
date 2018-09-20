@@ -1,0 +1,48 @@
+import rolando.*
+import hechizos.*
+import eclipse.*
+
+describe "Para los siguientes tests, Rolando debe tener al espectro maléfico
+ como hechizo preferido" {
+	
+	fixture {
+		rolando.hechizoPreferido(espectroMalefico)
+	}
+
+	test "El nivel de hechiceria de Rolando es 56" {
+		assert.equals(56, rolando.nivelHechiceria())
+	}
+
+	test "Al cambiar el nombre del espectro maléfico a 
+		espectro superrecontramalefico muajajaja el 
+		nivel de hechiceria de Rolando es 125" {
+		espectroMalefico.nombre("espectro superrecontramalefico muajajaja")	
+		assert.equals(125, rolando.nivelHechiceria())	  	
+	}
+
+	test "Al cambiar el hechizo preferido de Rolando por el hechizo básico, su 
+		nivel de hechiceria es 35" {
+		rolando.hechizoPreferido(hechizoBasico)
+		assert.equals(35, rolando.nivelHechiceria())
+	}	 
+	  
+	test "Cuando ocurre un eclipse, el nivel de hechiceria de Rolando es 61" {
+		eclipse.representarEclipse()
+		assert.equals(61, rolando.nivelHechiceria())
+	}	  
+
+	test "El espectro maléfico es poderoso, ya que la cantidad de letras 17
+	 	supera a 15" {
+		assert.that(espectroMalefico.esPoderoso())
+	}
+
+	test "Al cambiar el nombre del espectro maléfico a pepe, este NO es poderoso,
+	 	ya que la cantidad de letras 4 no supera a 15"{
+	 	espectroMalefico.nombre("pepe")
+	 	assert.that(!espectroMalefico.esPoderoso())
+	}
+
+	test "Por definicion, el hechizo basico NO es poderoso" {
+		assert.that(!hechizoBasico.esPoderoso())
+	}
+}
