@@ -4,7 +4,7 @@ import hechizos.*
 
 class Personaje {
 	var hechizoPreferido
-	var artefactos = []
+	var artefactos
 	var valorBaseLucha
 	const valorBaseHechiceria = 3
 	

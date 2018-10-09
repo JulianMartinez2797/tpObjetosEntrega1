@@ -1,8 +1,8 @@
-import rolando.*
+import Personaje.*
 import fuerzaOscura.*
 import refuerzos.*
 
-object espadaDelDestino {
+class Arma {
 	method unidadesDeLucha(){
 		return 3
 	}
@@ -20,9 +20,16 @@ object collarDivino {
 	}
 }
 
-object mascaraOscura {
+class Mascara {
+	var property indiceDeOscuridad
+	var property minimoDePoder = 4
+	
+	constructor(unIndiceDeOscuridad){
+		indiceDeOscuridad = unIndiceDeOscuridad
+	}
+	
 	method unidadesDeLucha(){
-		return 4.max(fuerzaOscura.valor() / 2)
+		return minimoDePoder.max((fuerzaOscura.valor() / 2) * indiceDeOscuridad)
 	}
 }
 
