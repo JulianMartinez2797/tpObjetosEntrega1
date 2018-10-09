@@ -1,14 +1,13 @@
-import rolando.*
+import Personaje.*
 import hechizos.*
 import eclipse.*
 
 describe "Para los siguientes tests, Rolando debe tener al espectro maléfico
  como hechizo preferido" {
 	
-	fixture {
-		rolando.hechizoPreferido(espectroMalefico)
-	}
-
+	var espectroMalefico = new HechizoDeLogo("espectro malefico", 1)
+	var rolando = new Personaje(espectroMalefico,[],0)	
+	
 	test "El nivel de hechiceria de Rolando es 56" {
 		assert.equals(56, rolando.nivelHechiceria())
 	}
