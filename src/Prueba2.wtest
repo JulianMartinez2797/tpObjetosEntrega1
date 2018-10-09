@@ -1,4 +1,4 @@
-import rolando.*
+import Personaje.*
 import artefactos.*
 import eclipse.*
 
@@ -6,12 +6,10 @@ describe "Para los siguientes tests, Rolando debe tener como artefactos
 	la espada del destino, el collar divino y la máscara oscura.
 	El collar divino debe tener 5 perlas." {
 	
-	fixture {
-		rolando.agregarArtefacto(espadaDelDestino)
-		rolando.agregarArtefacto(collarDivino)
-		rolando.agregarArtefacto(mascaraOscura)
-		collarDivino.cantidadPerlas(5)
-	}
+	var espadaDelDestino = new Arma()
+	var mascaraOscura = new Mascara(1)
+	var rolando = new Personaje("",[espadaDelDestino, collarDivino, mascaraOscura],1)
+
 	
 	test "Al eliminar todos los artefactos de Rolando, su habilidad para 
 		la lucha es 1(el valor base)" {
