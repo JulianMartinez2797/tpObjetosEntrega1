@@ -2,14 +2,20 @@ import artefactos.*
 import fuerzaOscura.*
 import hechizos.*
 
-object rolando {
-	var hechizoPreferido = espectroMalefico
+class Personaje {
+	var hechizoPreferido
 	var artefactos = []
-	var valorBaseLucha = 1
-	var valorBaseHechiceria = 3
+	var valorBaseLucha
+	const valorBaseHechiceria = 3
+	
+	constructor(unHechizoPreferido, unosArtefactos, unValorBaseLucha){
+		hechizoPreferido = unHechizoPreferido
+		artefactos = unosArtefactos
+		valorBaseLucha = unValorBaseLucha
+	}
 	
 	method nivelHechiceria() {
-		return (valorBaseHechiceria * hechizoPreferido.poder()) + fuerzaOscura.valor()
+		return (valorBaseHechiceria * hechizoPreferido.poder() * hechizoPreferido.multiplo()) + fuerzaOscura.valor()
 	}
 	
 	method hechizoPreferido(unHechizo) {
