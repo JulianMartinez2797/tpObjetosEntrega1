@@ -33,37 +33,30 @@ class Mascara {
 	}
 }
 
-object armadura {
-	var refuerzo = ninguno
-	var poseedor = rolando
+class Armadura {
+	var property refuerzo
+	var valorBase
+	var property poseedor
 	
-	method refuerzo(){
-		return refuerzo
-	}
-	
-	method refuerzo(unRefuerzo){
+	constructor(unRefuerzo, unValorBase, unPoseedor){
 		refuerzo = unRefuerzo
+		valorBase = unValorBase
+		poseedor = unPoseedor
 	}
 	
 	method unidadesDeLucha(){
-			return 2 + refuerzo.valor()
-	}
-	
-	method tieneRefuerzo(){
-		return refuerzo != null
-	}
-	
-	method poseedor(){
-		return poseedor 
+			return valorBase + refuerzo.poder()
 	}
 }
 
 object espejo {
+	var property poseedor
+	
 	method unidadesDeLucha(){
-		if(rolando.tieneComoRefuerzoSoloAlEspejo() || rolando.artefactos().isEmpty()){
+		if(poseedor.tieneComoRefuerzoSoloAlEspejo() || poseedor.artefactos().isEmpty()){
 			return 0
 		}else{
-			return rolando.mejorArtefacto().unidadesDeLucha()
+			return poseedor.mejorArtefacto().unidadesDeLucha()
 		}
 	}
 }

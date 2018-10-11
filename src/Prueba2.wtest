@@ -9,7 +9,7 @@ describe "Para los siguientes tests, Rolando debe tener como artefactos
 	var espadaDelDestino = new Arma()
 	var mascaraOscura = new Mascara(1)
 	var rolando = new Personaje("",[espadaDelDestino, collarDivino, mascaraOscura],1)
-
+	var mascaraParaNadaOscura = new Mascara(0)
 	
 	test "Al eliminar todos los artefactos de Rolando, su habilidad para 
 		la lucha es 1(el valor base)" {
@@ -42,5 +42,16 @@ describe "Para los siguientes tests, Rolando debe tener como artefactos
 		para la lucha es 9" {
 		rolando.removerArtefacto(mascaraOscura)
 		assert.equals(9, rolando.habilidadLucha())	
+	}
+	
+	test "Si tenemos una mascara oscura con indice de oscuridad de 0, las
+	unidades de lucha que aporta es 4 "{
+		assert.equals(4, mascaraParaNadaOscura.unidadesDeLucha())
+	}
+	
+	test "Si tenemos una mascara oscura con indice de oscuridad de 0 y 
+	con minimo de poder en 2, las unidades de lucha que aporta es 2 "{
+		mascaraParaNadaOscura.minimoDePoder(2)
+		assert.equals(2, mascaraParaNadaOscura.unidadesDeLucha())
 	}
 }
