@@ -19,7 +19,7 @@ class HechizoDeLogo {
 object hechizoBasico {
 	var property multiplo = 1
 	
-	method esPoderoso() {
+	method esPoderoso(){
 		return false
 	}
 	

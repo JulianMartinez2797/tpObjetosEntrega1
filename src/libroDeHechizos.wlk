@@ -12,4 +12,8 @@ object libroDeHechizos {
 	method hechizosPoderosos(){
 		return hechizos.filter({unHechizo => unHechizo.esPoderoso()})
 	}
+	
+	method multiplo(){
+		return 1
+	}
 }
