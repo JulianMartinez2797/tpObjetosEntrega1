@@ -1,7 +1,6 @@
 import artefactos.*
 import fuerzaOscura.*
 import hechizos.*
-import tienda.*
 
 class Personaje {
 	var hechizoPreferido

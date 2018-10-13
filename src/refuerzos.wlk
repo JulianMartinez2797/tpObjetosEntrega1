@@ -32,7 +32,7 @@ object ninguno {
 		return 0
 	}
 	
-	method precio(valor){
+	method precio(){
 		return 2
 	}	
 }
