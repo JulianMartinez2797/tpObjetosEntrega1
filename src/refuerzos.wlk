@@ -10,8 +10,8 @@ class CotaDeMalla {
 		poder = unPoder
 	}
 	
-	method poder(){
-		return poder	
+	method precio(){
+		return poder /  2
 	}
 }
 
@@ -21,6 +21,10 @@ object bendicion {
 	method poder(){
 		return poseedor.nivelHechiceria()
 	}
+	
+	method precio(){
+		return 0
+	}
 }
 
 object ninguno {
@@ -28,4 +32,7 @@ object ninguno {
 		return 0
 	}
 	
+	method precio(){
+		return 2
+	}	
 }

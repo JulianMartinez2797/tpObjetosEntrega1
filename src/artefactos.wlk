@@ -6,6 +6,9 @@ class Arma {
 	method unidadesDeLucha(){
 		return 3
 	}
+	method precio(){
+		return self.unidadesDeLucha()
+	}
 }
 
 object collarDivino {
@@ -17,6 +20,10 @@ object collarDivino {
 	
 	method unidadesDeLucha(){
 		return cantidadPerlas
+	}
+	
+	method precio(){
+		return 2 * cantidadPerlas
 	}
 }
 
@@ -47,6 +54,11 @@ class Armadura {
 	method unidadesDeLucha(){
 			return valorBase + refuerzo.poder()
 	}
+	method precio(){
+		if(refuerzo = ninguno){
+			return 2
+		} else return valorBase + refuerzo.precio()
+	}
 }
 
 object espejo {
@@ -58,5 +70,9 @@ object espejo {
 		}else{
 			return poseedor.mejorArtefacto().unidadesDeLucha()
 		}
+	}
+	
+	method precio(){
+		return 90
 	}
 }

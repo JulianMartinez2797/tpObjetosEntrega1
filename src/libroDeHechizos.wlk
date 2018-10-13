@@ -16,4 +16,8 @@ object libroDeHechizos {
 	method multiplo(){
 		return 1
 	}
+	
+	method precio(){
+		return (10 * hechizos.size() + self.poder() ) 
+	}
 }
