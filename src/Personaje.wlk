@@ -7,12 +7,18 @@ class Personaje {
 	var artefactos 
 	var valorBaseLucha
 	const valorBaseHechiceria = 3
-	var oro = 100
+	var property oro = 100
+	
+	
 	
 	constructor(unHechizoPreferido, unosArtefactos, unValorBaseLucha){
 		hechizoPreferido = unHechizoPreferido
 		artefactos = unosArtefactos
 		valorBaseLucha = unValorBaseLucha
+	}
+	
+	method cantidadArtefactos(){
+		return artefactos.size()
 	}
 	
 	method nivelHechiceria() {
@@ -67,7 +73,7 @@ class Personaje {
 	//comercio
 	
 	method costoPorIntercambiarHechizo(unHechizo){
-		return (unHechizo.precio() - hechizoPreferido.precio()/2)
+		return 0.max(unHechizo.precio() - hechizoPreferido.precio()/2)
 	}
 	
 	method alcanzaParaComprarHechizo(unHechizo){
