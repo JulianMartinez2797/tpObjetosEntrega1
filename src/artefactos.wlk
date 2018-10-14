@@ -7,7 +7,7 @@ class Arma {
 		return 3
 	}
 	method precio(){
-		return self.unidadesDeLucha()
+		return 5 * self.unidadesDeLucha()
 	}
 }
 
@@ -55,9 +55,7 @@ class Armadura {
 			return valorBase + refuerzo.poder()
 	}
 	method precio(){
-		if(refuerzo = ninguno){
-			return 2
-		} else return valorBase + refuerzo.precio()
+			return valorBase + refuerzo.precio()
 	}
 }
 
