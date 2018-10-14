@@ -14,6 +14,12 @@ que todas las funcionalidades de 'comercio' funcionen correctamente"{
 	var thor = new Personaje(hechizoBasico,[],1)
 	var loki = new Personaje(hechizoBasico,[],1)
 	
+			  	
+	var espada = new Arma()
+	var cotaDeMalla1 = new CotaDeMalla(5)
+	var armaduraSinRefuerzo = new Armadura(ninguno,2,xenia)
+	var armaduraConCota = new Armadura(cotaDeMalla1,0,xenia)
+	
 	
 	fixture{
 		loki.oro(5)
@@ -45,24 +51,19 @@ que todas las funcionalidades de 'comercio' funcionen correctamente"{
 		assert.equals(90,thor.oro())
 	}
 	
-/* test "Loki comienza con 5 monedas. 
+	test "Loki comienza con 5 monedas. 
 		  Quiere canjear el hechizo por el de “alacachula cachicomula” del juego de datos."{
-		
+			
 		assert.throwsExceptionWithMessage(
 			"El oro actual no alcanza para realizar la compra buscada",
-			loki.comprarHechizo(alacachulaCachicomula)
-		)
-	}*/
+			{loki.comprarHechizo(alacachulaCachicomula)}
+		)	
+	}
 	
 	test "Xenia compra una espada, un collar divino (de 5 perlas), 
 		  una armadura sin refuerzo y otra armadura con malla de cota cuyo valor de lucha es 5. 
 		  Cuántas monedas le quedan a Xenia."{
 		  	
-		var espada = new Arma()
-		var cotaDeMalla1 = new CotaDeMalla(5)
-		var armaduraSinRefuerzo = new Armadura(ninguno,1,xenia)
-		var armaduraConCota = new Armadura(cotaDeMalla1,1,xenia)
-			
 		xenia.comprarArtefacto(espada)
 		xenia.comprarArtefacto(collarDivino)
 		xenia.comprarArtefacto(armaduraSinRefuerzo)
@@ -73,12 +74,7 @@ que todas las funcionalidades de 'comercio' funcionen correctamente"{
 	
 	test "Xenia compra una espada, un collar divino (de 5 perlas), una armadura sin refuerzo 
 		  y otra armadura con malla de cota cuyo valor de lucha es 5. 
-		  Cuántos artefactos tiene Xenia."{
-		  	
-		var espada = new Arma()
-		var cotaDeMalla1 = new CotaDeMalla(5)
-		var armaduraSinRefuerzo = new Armadura(ninguno,1,xenia)
-		var armaduraConCota = new Armadura(cotaDeMalla1,1,xenia)		
+		  Cuántos artefactos tiene Xenia."{	
 		
 		xenia.comprarArtefacto(espada)
 		xenia.comprarArtefacto(collarDivino)
@@ -93,8 +89,8 @@ que todas las funcionalidades de 'comercio' funcionen correctamente"{
 		  y una armadura reforzada con el hechizo alacachula (del juego de datos). 
 		  Cuántas monedas le quedan a Thor."{
 		
-		var armaduraBendicion = new Armadura(bendicion,0,thor)
-		var armaduraHechizo = new Armadura(alacachulaCachicomula,0,thor)
+		var armaduraBendicion = new Armadura(bendicion,2,thor)
+		var armaduraHechizo = new Armadura(alacachulaCachicomula,2,thor)
 		
 		thor.comprarArtefacto(armaduraBendicion)
 		thor.comprarArtefacto(armaduraHechizo)
@@ -107,7 +103,7 @@ que todas las funcionalidades de 'comercio' funcionen correctamente"{
 		
 		assert.throwsExceptionWithMessage(
 			"El oro actual no alcanza para realizar la compra buscada",
-			loki.comprarHechizo(espejo)
+			{loki.comprarArtefacto(espejo)}
 		)	
 	}
 	

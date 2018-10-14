@@ -33,6 +33,6 @@ object ninguno {
 	}
 	
 	method precio(){
-		return 2
+		return 0
 	}	
 }
