@@ -38,10 +38,10 @@ describe "Para los siguientes tests, Rolando debe tener al espectro maléfico
 	test "Al cambiar el nombre del espectro maléfico a pepe, este NO es poderoso,
 	 	ya que la cantidad de letras 4 no supera a 15"{
 	 	espectroMalefico.nombre("pepe")
-	 	assert.that(!espectroMalefico.esPoderoso())
+	 	assert.notThat(espectroMalefico.esPoderoso())
 	}
 
 	test "Por definicion, el hechizo basico NO es poderoso" {
-		assert.that(!hechizoBasico.esPoderoso())
+		assert.notThat(hechizoBasico.esPoderoso())
 	}
 }

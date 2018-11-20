@@ -28,7 +28,7 @@ describe "Para los siguientes tests, Rolando debe tener como artefactos
 
 	test "Al sacarle la armadura a Rolando, NO esta cargado" {
 		rolando.removerArtefacto(armadura)
-		assert.that(!rolando.estaCargado())
+		assert.notThat(rolando.estaCargado())
 	}
 
 	test "La habilidad para la lucha de Rolando es 20" {

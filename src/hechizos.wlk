@@ -8,7 +8,7 @@ class HechizoDeLogo {
 	}
 	
 	method poder(){
-		return nombre.size()
+		return (nombre.size()* multiplo)
 	}
 	
 	method esPoderoso(){
